@@ -1,0 +1,388 @@
+
+.big{
+  width: 100%;
+  height: 100vh;
+  background:#F2F2F2;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+.one{
+  width: 95%;
+  height: 10vh;
+  background: #ffffff;
+  display: flex;
+  align-content: center;
+  box-sizing: border-box;
+  padding: 0 3%;
+  border-bottom: 1px solid #F2F2F2;
+}
+.left-icon{
+  width: 10%;
+  display: flex;
+  align-items: center;
+
+}
+.left-icon image{
+  width: 6vw;
+  height: 6vw;
+}
+.one .right-content{
+  box-sizing: border-box;
+  padding-left: 3%;
+  width: 85%;
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+}
+.one .address{
+  width: 100%;
+  font-size: 30rpx;
+}
+.one .address text{
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.one .name{
+  margin-top: 2%;
+  width: 100%;
+  font-size: 22rpx;
+  color: #6E6E6E
+}
+.one .name text{
+  margin-right: 5%;
+}
+.one .right-icon{
+  width: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.one .right-icon text{
+  width: 2.5vw;
+  height: 2.5vw;
+  display: block;
+  border-style: solid;
+  border-width: 2px 2px 0 0;
+  border-color: #ccc;
+  transform: rotate(45deg)
+}
+.two{
+  width: 95%;
+  height: 6vh;
+  background: #ffffff;
+  display: flex;
+  align-content: center;
+  box-sizing: border-box;
+  padding: 0 3%;
+}
+
+.two .right-content{
+  box-sizing: border-box;
+  padding-left: 3%;
+  width: 90%;
+  display: flex;
+  align-items: center;
+}
+
+.two .timetext{
+  font-size: 30rpx;
+}
+.two .time{
+  font-size: 25rpx;
+  color: blue;
+  margin-left: 2% 
+}
+
+.three{
+  background: #ffffff;
+  width: 95%;
+  box-sizing: border-box;
+  padding-top: 1vh;
+  margin-top: 2vh;
+}
+
+.goods{
+  background: #F2F2F2;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 3%;
+  margin-bottom: 1vh;
+  height: 14vh;
+}
+.left-goods{
+  width: 25%;
+  display: flex;
+  align-items: center;
+}
+.left-goods image{
+  width: 13vh;
+  height: 12vh;
+}
+.right-goods{
+  height: 12vh;
+  width: 75%;
+  font-size: 3.7vw;
+  display: flex;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  color: #848484;
+  padding-left: 2%;
+}
+.right-goods view{
+  width: 100%;
+  height: 4vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.name-price{
+  color: #000000;
+  display: flex;
+}
+.name-price .name{
+  width: 50%;
+}
+.name-price .price{
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+.name-price .price .disprice{
+  position: absolute;
+  top: 5vw;
+  color: #BDBDBD;
+  text-decoration: line-through
+}
+
+
+.four{
+  height: 6vh;
+  width: 95%;
+  background: #ffffff;
+  box-sizing: border-box;
+  border-top: 1px dashed #BDBDBD;
+  padding: 0 3%;
+  font-size: 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.four .price{
+  font-size: 4.3vw;
+  color: #424242;
+  text-indent: 0.2em
+}
+.four .dispirce{
+  color: #FE2E2E;
+}
+.four .stext{
+  margin-left: 4vw
+}
+
+.small{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background: #ffffff;
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 2.5%;
+}
+.small-left{
+  width: 50%;
+  font-size: 4vw;
+}
+.small-left text{
+  vertical-align: middle;
+}
+.small-left .tprice{
+  font-weight: 600;
+  font-size: 5vw;
+  color: #424242;
+}
+.small-right{
+  width: 50%;
+}
+.small-right button{
+  color: #ffffff;
+  background: #26DB84;
+  margin: 0;
+  font-size: 4vw;
+  width: 70%;
+  height: 6vh;
+  line-height: 6vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  float: right;
+}
+button::after{
+  border: none;
+}
+.empty{
+  width: 100%;
+  height: 10vh;
+}
+.more{
+  width: 95%;
+  background: #ffffff;
+  font-size: 3vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
+  color: #9A9B9E;
+}
+.more .jt-up{
+  display: inline-block;
+  width: 2vw;
+  height: 2vw;
+  border-style: solid;
+  border-width: 0 0 2px 2px;
+  border-color: #D8D8D8;
+  transform: rotate(-45deg);
+  position: relative;
+  top: -0.7vw;
+  left: 2vw;
+}
+
+.more .jt-down{
+  display: inline-block;
+  width: 2vw;
+  height: 2vw;
+  border-style: solid;
+  border-width: 0 0 2px 2px;
+  border-color: #D8D8D8;
+  transform: rotate(135deg);
+  position: relative;
+  bottom: -0.7vw;
+  left: 2vw;
+}
+.mhidden{
+  display: none!important
+}
+.shidden{
+  display: none!important
+}
+
+/* 支付窗口 */
+.fixed-pay{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+  opacity: 0.7;
+  z-index: 50
+}
+.pay {
+  background: #ffffff;
+  border-radius: 5px;
+  width: 70vw;
+  margin: auto;
+  height: 60vw;
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  position: fixed;
+  z-index: 9999;
+  top:45vh;
+  left:50vw;
+  transform:translate(-50%,-70%);
+}
+.pay-title{
+  width: 100%;
+  height: 10vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pay-content{
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  height: 50vw;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 2%;
+}
+
+.pay-name,.pay-money{
+  width: 100%;
+  text-align: center;
+  margin-top: 1vw;
+}
+.pay-name{
+  font-size: 6vw;
+}
+.pay-money{
+  font-size: 6vw;
+  color: #FF0000
+}
+.pay-input{
+  margin-top: 2vw;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 5%;
+  display: flex;
+  justify-content: center;
+}
+.pay-input input{
+  width: 80%;
+  border: 2px solid #ccc;
+  padding: 1% 0;
+  padding-left: 5px;
+  font-size: 4vw;
+}
+.pay-btn{
+  width: 70%;
+  margin-top: 4vw;
+  color: #ffffff;
+  background: #26DB84;
+  font-size: 5vw;
+  line-height: 5vw;
+  box-sizing: border-box;
+  padding: 3vw 2vw;
+  font-weight: 600;
+}
+.hpay{
+  background: #04B45F!important
+}
+button::after{
+  border: none;
+}
+
+.aplaceholder{
+  /* WebKit, Blink, Edge */
+  font-size: 4vw;
+  color: #A4A4A4;
+  font-weight: 600
+}
+.payclose{
+  position: absolute;
+  top: -1vw;
+  font-size: 6vw;
+  line-height: 6vw;
+  width: 6vw;
+  height: 6vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  right: 0;
+  color: #A4A4A4;
+}

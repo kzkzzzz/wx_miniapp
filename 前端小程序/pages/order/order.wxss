@@ -1,0 +1,94 @@
+.title{
+  width: 100%;
+  text-align: center;
+  font-size: 5vw;
+  margin-bottom: 1vw;
+  padding-bottom: 1vw;
+}
+.main{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.orders{
+  width: 96%;
+  border-bottom:1px solid #F2F2F2;
+  padding: 1vw 0;
+  margin-bottom: 4vw;
+}
+.order-title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-title text{
+  width: 50%;
+  font-size: 3vw;
+  color: #595C62;
+}
+.order-title text:last-child{
+  text-align: right;
+}
+.goods{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 12vw;
+  margin: 2vw 0;
+}
+
+.left-goods,.right-goods{
+  width: 50%;
+}
+.right-goods{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 4vw;
+}
+
+
+.left-goods image{
+  height: 12vw;
+  width: 12.5vw;
+}
+
+.order-price{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.order-price view{
+  font-size: 4.5vw;
+  text-align: right;
+}
+.order-price view:first-child{
+  margin-right: 3vw;
+}
+.disprice,.payprice{
+  font-weight: 600;
+}
+.disprice{
+  color: #FF0000;
+}
+.order-address{
+  margin: 1vw 0;
+  display: flex;
+  justify-content: space-between;
+}
+.order-address view:first-child{
+  width: 30%;
+  font-size: 4vw;
+}
+.order-address view:last-child{
+  width: 70%;
+  font-size: 3vw;
+}
+.order-address view:last-child text{
+  display: block;
+  text-align: right;
+  color: #35373C;
+}

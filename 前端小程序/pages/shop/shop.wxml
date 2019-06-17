@@ -1,0 +1,246 @@
+<wxs src="shop.wxs" module="tools" />
+
+<!-- 详情信息遮罩 -->
+<view class='fixed-big' hidden='{{fxview}}' bindtap='showFxview' catchtouchmove='stopTouch'></view>
+<!-- 详情信息遮罩 -->
+
+
+<!-- 产品详情信息浮框 -->
+<view class='ff' hidden='{{fxview}}' catchtouchmove='stopTouch'>
+  <view class='fixed-title'>{{goodDetail.gname}}</view>
+  <scroll-view scroll-top='{{fixedScrollH}}' scroll-y style='height:77vw;' class="fixed-scroll">
+    <view class='fixed-image'>
+      <image src='{{goodDetail.gimage}}'></image>
+    </view>
+
+    <view class='fixed-content'>
+      <view class='fixed-sale'>销量: {{goodDetail.gsale}}</view>
+
+      <view class='fixed-dis' wx:if='{{goodDetail.gprice != goodDetail.disprice}}'>{{tools.discount(goodDetail.gprice/goodDetail.disprice)}}</view>
+
+      <view class='fixed-des'>{{goodDetail.gdesc}}</view>
+    </view>
+  </scroll-view>
+
+  <view class='fixed-price'>
+    <view class='temp'>
+      <text>¥{{goodDetail.gprice}}</text>
+      <text class='fixed-disprice' wx:if='{{goodDetail.gprice != goodDetail.disprice}}' >¥{{goodDetail.disprice}}</text>
+    </view>
+  </view>
+
+  <view class='close' bindtap='showFxview'>
+    <text>×</text>
+  </view>
+</view>
+<!-- 产品详情信息浮框 -->
+
+
+<!-- 顶部区域start -->
+<view class='top'>
+  <view class='top-left'>
+    <view wx:if='{{waitStatus}}' class='wait-topimg'></view>
+    <image wx:if='{{showStatus}}' src='{{showData.shopinfo.image}}'></image>
+  </view>
+  <view class='top-right'>
+    <view wx:if='{{waitStatus}}' class='wait-topname'></view>
+    <view wx:if='{{waitStatus}}' class='wait-topdes'></view>
+    <text wx:if='{{showStatus}}' class='shop-name'>{{showData.shopinfo.name}}</text>
+    <text wx:if='{{showStatus}}' class='shop-des'>介绍：{{showData.shopinfo.desc}}</text>
+  </view>
+</view>
+<!-- 顶部区域end -->
+
+<!-- 等待占位内容遮罩 -->
+<view class='wait-donghua' wx:if='{{waitStatus}}'>
+  <view class='await'></view>
+</view>
+<!-- 等待占位内容遮罩 -->
+
+<!-- 导航 -->
+<view class='nav'>
+
+  <view class='wait-nav' wx:if='{{waitStatus}}'>
+    <view class='witem'></view>
+    <view class='witem'></view>
+    <view class='witem'></view>
+  </view>
+
+  <view class='left-nav' wx:if='{{showStatus}}'>
+    <block wx:for='{{nav}}' wx:key='this'>
+      <text bindtap='manualSwiper' data-sid='{{index}}' class='{{index == currentSwiper ? "active_nav":""}}'>{{item}}</text>
+    </block>
+  </view>
+</view>
+<!-- 导航 -->
+
+
+
+<!-- 中间区域start -->
+
+<!-- 中部内容套个swiper滑动 -->
+<swiper current='{{currentSwiper}}' catchtouchmove='stopTouch' bindchange='swiperChange'>
+
+  <swiper-item>
+    <view class='mid'>
+
+      <!-- 左边区域 -->
+      <view class='hide-scroll-left'>
+        <view class='wait-scroll-left' wx:if='{{waitStatus}}'>
+          <block wx:for='{{wait}}' wx:key='this'>
+            <view class='litem'></view>
+          </block>
+        </view>
+        <scroll-view wx:if='{{showStatus}}' scroll-y='{{scrolly}}' style='height:{{scrollHeight}};' bindscroll='scrollEventL' scroll-with-animation scroll-top='{{scrollTopL}}' class="left-view">
+          <block wx:for='{{showData.category}}' wx:for-item='cate' wx:key='catename'>
+            <view class='{{ index==nowid ? "active":"" }}' id='{{index}}' bindtap='scrollToView' data-cid='c{{index}}'>
+              <text>{{cate.catename}}</text>
+            </view>
+          </block>
+          <view class='emptycate'></view>
+        </scroll-view>
+
+      </view>
+      <!-- 左边区域 -->
+
+
+      <!-- 右边区域 -->
+      <view class='hide-scroll-right'>
+
+        <view wx:if='{{showStatus}}' class='fixedcate'>{{showData.category[nowid]['catename']}}</view>
+        <view wx:if='{{waitStatus}}' class='fixedcate'>
+          <view class='wait-fixedcate'></view>
+        </view>
+
+        <!-- 等待加载占位部分 -->
+        <view wx:if='{{waitStatus}}' class='wait-stitle'></view>
+        <view wx:if='{{waitStatus}}'>
+          <block wx:for='{{wait}}' wx:key='this'>
+            <view class='wait-scroll-right'>
+              <view class='wait-sleft'></view>
+              <view class='wait-sright'>
+                <view></view>
+                <view></view>
+                <view></view>
+              </view>
+            </view>
+          </block>
+        </view>
+        <!-- 等待加载占位部分 -->
+
+
+        <!-- 右边滚动部分 -->
+        <scroll-view wx:if='{{showStatus}}' bindscroll='scrollEventR' scroll-y='{{scrolly}}' style='height:{{scrollHeight}};' class="right-view" scroll-into-view='{{cid}}' scroll-with-animation>
+          <view class='goods'>
+            <block wx:for='{{showData.category}}' wx:for-item='cate' wx:key='catename'>
+              <view id='c{{index}}'>
+                <view class='good-title'>{{ index != 0 ? cate.catename:""}}</view>
+                <block wx:for='{{cate.goods}}' wx:for-item='good' wx:key='gid'>
+                  <view class='content' bindtap='showFxview' data-gid='{{good.gid}}'>
+                    <image lazy-load='true' src='{{good.gimage}}'></image>
+                    <view class='rightbox'>
+                      <view class='mtitle'>{{good.gname}}</view>
+                      <view class='msale'>销量: {{good.gsale}}</view>
+                      <view class='mdes'><text>{{good.gdesc}}</text></view>
+   
+
+                      <view class='mbuy'>
+                        <view class='left-buy'>
+                          <text class='gprice'>¥{{good.gprice}}</text>
+                          <text class='disprice'>{{good.disprice!=good.gprice?"¥"+good.disprice:""}}</text>
+                        </view>
+
+                        <view class='right-buy'>
+                          <button catchtap='subGood' data-gid='{{good.gid}}' data-gprice='{{good.gprice}}' data-disprice='{{good.disprice}}' data-gname='{{good.gname}}' class='sub dobtn {{totalGoods["good"+good.gid]["total"] ? "":"hidden"}}' data-gimage='{{good.gimage}}' hover-class="h-sub">
+                            <text>-</text>
+                          </button>
+                          <text class='show-total {{totalGoods["good"+good.gid]["total"] ? "":"hidden"}}'>{{totalGoods['good'+good.gid]['total']}}</text>
+                          <button catchtap='addGood' data-gid='{{good.gid}}' data-gprice='{{good.gprice}}' data-disprice='{{good.disprice}}' data-gname='{{good.gname}}' data-gimage='{{good.gimage}}' class='add dobtn' hover-class="h-add">
+                            <text>+</text>
+                          </button>
+                        </view>
+                      </view>
+
+                      <view class='discount {{good.disprice!=good.gprice?"":"hidden"}}'>
+                        <image src='../../images/hot.png'></image>
+                        <text>{{tools.discount(good.gprice/good.disprice)}}</text>
+                      </view>
+
+                    </view>
+                  </view>
+                </block>
+              </view>
+            </block>
+          </view>
+        </scroll-view>
+        <!-- 右边滚动部分 -->
+
+
+      </view>
+    </view>
+  </swiper-item>
+  <!-- 右边区域 -->
+
+  <!-- 其他区域 -->
+  <swiper-item class='other-swiper'>
+    <view class='seg'></view>
+    <view class='testview'>
+      <text>这里是评价页面</text>
+    </view>
+  </swiper-item>
+
+  <swiper-item>
+    <view class='seg'></view>
+    <view class='testview'>
+      <text>这里是商家信息页面</text>
+    </view>
+  </swiper-item>
+
+</swiper>
+<!-- 其他区域 -->
+
+<!-- 中间区域end -->
+
+
+<!-- 底部区域start -->
+<view wx:if='{{showStatus}}' class='bottom' hidden='{{hideBottom}}'>
+  <view class='bottom-left' bindtap='showShopCar'>
+    <view class='image-box'>
+      <image src='../../images/box.png'></image>
+      <text class='{{totalNum?"":"hide-dot"}}'>{{totalNum}}</text>
+    </view>
+    <text>￥<text id='total-price'>{{totalPrice}}</text></text>
+  </view>
+  <view class='bottom-right {{totalNum?"":"isempty"}}' bindtap='createOrder'>
+    <text id='loading' class='{{cloading?"":"lhidden"}}'></text>
+    <text>{{totalNum?"去结算":"未选择商品"}}</text>
+  </view>
+</view>
+
+<!-- 购物车展开时 背景的遮罩 -->
+<view class='mask {{optmask?"optmask":""}}' bindtap='showShopCar'></view>
+
+
+<!-- 购物车展开部分 -->
+<view class='shopcar' style='height:{{carViewH}}vh'>
+  <view class='clear-shopcar'>
+    <text bindtap='clearShopCar'>清空购物车</text>
+  </view>
+  <scroll-view catchtouchmove="stopTouch" scroll-y style='height:{{carScrollH}}vh' scroll-with-animation class="car-srcoll">
+    <view class='car-goods' wx:for='{{totalGoods}}' wx:for-item='good' wx:for-index='key' wx:key='gname'>
+      <view class='car-left'>{{good.gname}}</view>
+      <view class='car-right'>
+        <button bindtap='subGood' data-gid='{{good.gid}}' data-gprice='{{good.gprice}}' data-disprice='{{good.disprice}}' data-gname='{{good.gname}}' data-gimage='{{good.gimage}}' class='sub dobtn}}' hover-class="h-sub">
+          <text>-</text>
+        </button>
+        <text class='show-total'>{{totalGoods['good'+good.gid]['total']}}</text>
+        <button bindtap='addGood' data-gid='{{good.gid}}' data-gprice='{{good.gprice}}' data-disprice='{{good.disprice}}' data-gname='{{good.gname}}' data-gimage='{{good.gimage}}' class='add dobtn' hover-class="h-add">
+          <text>+</text>
+        </button>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<!-- 购物车展开部分 -->
+
+<!-- 底部区域end -->

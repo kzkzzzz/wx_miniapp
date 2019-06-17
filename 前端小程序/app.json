@@ -1,0 +1,54 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/user/user",
+    "pages/shop/shop",
+    "pages/pay/pay",
+    "pages/address/address",
+    "pages/order/order",
+    "pages/register/register",
+    "pages/login/login",
+    "pages/tv/tv",
+    "pages/video/video"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#000000",
+    "selectedColor": "#107BCD",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "selectedIconPath": "images/homes.png",
+        "iconPath": "images/home.png",
+        "pagePath": "pages/index/index",
+        "text": "商城"
+      },
+      {
+        "selectedIconPath": "images/tvs.png",
+        "iconPath": "images/tv.png",
+        "pagePath": "pages/tv/tv",
+        "text": "视频"
+      },
+      {
+        "selectedIconPath": "images/users.png",
+        "iconPath": "images/user.png",
+        "pagePath": "pages/user/user",
+        "text": "我的"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000
+  },
+  "sitemapLocation": "sitemap.json",
+  "permission":{
+    "scope.userLocation":{
+      "desc":"您的位置信息将用于小程序接口展示"
+    }
+  }
+}

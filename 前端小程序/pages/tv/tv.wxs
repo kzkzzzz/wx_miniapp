@@ -1,0 +1,8 @@
+var opac = function(oc){
+  console.log(oc)
+  return oc ? !!oc * 1 : !!oc * 0;
+}
+
+module.exports={
+  opac: opac
+}

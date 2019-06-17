@@ -1,0 +1,43 @@
+<swiper circular indicator-dots autoplay interval='4000' indicator-active-color='#FAFAFACC'>
+<block wx:for='{{banner}}' wx:key='this'>
+  <swiper-item>
+    <image id='{{index}}' bindtap='previewImage' src='{{item}}'></image>
+  </swiper-item>
+</block>
+</swiper>
+
+<view class='main'>
+  <view class='location'>
+    <text>{{location.province}}</text>
+    <text>{{location.city}}</text>
+    <text>{{location.district}}</text>
+  </view>
+  <view class='weather w-hidden {{hide?"":"w-show"}}'>
+
+    <view class='top'>
+      <view>
+        <text class='tem'>{{weather.tem}}</text>
+        <text> {{weather.wea}}</text>
+      </view>
+      <image class='w-img' src='{{weather.wea_img}}'></image>
+    </view>
+
+    <view class='bottom'>
+      <view>
+        <text>{{weather.win}}{{weather.win_speed}} {{weather.win_meter}}</text>
+      </view>
+
+      <view>
+        <text>{{weather.air}}{{weather.air_level}} </text>
+        <text>{{weather.humidity}}</text>
+      </view>
+
+    </view>
+
+  </view>
+  <button hover-class='button-hover' bindtap='goShop'>进入商城</button>
+  <button hover-class='button-hover' bindtap='goOrder'>查看订单</button>
+  <button hover-class='button-hover' bindtap='getWeather'>重新定位</button>
+  <button hover-class='button-hover' bindtap='goAddress'></button>
+
+</view>

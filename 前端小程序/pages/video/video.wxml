@@ -1,0 +1,68 @@
+<!--pages/video/video.wxml-->
+
+<view class='play'>
+  <video bindplay='recordPlay' bindtap='controlsTrue' id='tv' controls='{{tv.controls}}' show-center-play-btn="{{tv.centerbtn}}" src='{{play.play_url}}'></video>
+</view>
+
+<view class='main'>
+  <view class='nav'>
+    <block wx:for='{{nav}}' wx:key='this'>
+      <text data-sid='{{index}}' bindtap='manualChange' class='{{index == currentSwiper?"active":""}}'>{{item}} {{index==1 && play.comment_num !=0 ?"("+play.comment_num+")":""}}</text>
+    </block>
+  </view>
+
+  <swiper style='height:{{scrollHeight}}px' current='{{currentSwiper}}' bindchange='swiperChange'>
+
+    <swiper-item>
+      <scroll-view style='height:{{scrollHeight}}px' scroll-y >
+        <view class='about'>
+          <text>发布时间: {{play.created_at}}</text>
+          <text>标题: {{play.title}}</text>
+        </view>
+
+
+        <view>
+        <view class='recommend'>视频推荐</view>
+          <view wx:for='{{recommend}}' wx:key='id' class='revideo' bindtap='redirectVideo' data-vindex='{{index}}'>
+            <view class='left'>
+              <image src='{{item.img_url}}'></image>
+            </view>
+
+            <view class='right'>
+              <view class='title'>{{item.title}}</view>
+              <view class='time'>发布时间: {{item.created_at}}</view>
+
+              <view class='num'>
+              <text>播放量: {{item.play_num}}</text>
+              <text>评论数: {{item.comment_num}}</text>
+              </view>
+
+            </view>
+
+          </view>
+        </view>
+      </scroll-view>
+
+
+    </swiper-item>
+
+
+
+
+    <swiper-item>
+    <scroll-view style='height:{{cm_scrollHeight}}px' scroll-y >
+      <view class='comment-box'>
+        <view class='comment' wx:for='{{play.comments}}' wx:key='id'>
+        <view class='user'><image src='{{item.profile}}'></image> <text>{{item.comment_user}}</text></view>
+        <view class='time'>{{item.created_at}}</view>
+        <view class='cont'>{{item.content}}</view>
+        </view>
+      </view>
+    </scroll-view>
+    </swiper-item>
+  </swiper>
+      <view wx:if='{{currentSwiper==1?true:false}}' class='write' style='height:{{wr_height}}px'>
+    <input  bindconfirm='sendComment' bindinput='saveComment' value='{{ccontent}}' placeholder='发表评论' placeholder-style='font-size: 4.3vw;color: #A2A2A8;font-weight: 600' cursor-spacing='100'></input>
+    </view>
+
+</view>

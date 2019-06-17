@@ -1,0 +1,8 @@
+var discount = function(n){
+  // var temp = n.toFixed(2) * 10 +'折'
+  var temp = Math.ceil(n * 1000) / 100 +'折'
+  return temp
+}
+module.exports = {
+  discount: discount
+}

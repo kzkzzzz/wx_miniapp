@@ -1,0 +1,16 @@
+var cMul = function(x,y){
+  var m=0,r1,r2;
+  //wxs用不了try catch
+  if (x.toString().split('.').length > 1) {
+    m+= x.toString().split('.')[1].length
+  }
+  if (y.toString().split('.').length > 1) {
+    m+= y.toString().split('.')[1].length
+  }
+  r1 = Number(x.toString().replace('.', ''))
+  r2 = Number(y.toString().replace('.',''))
+  return (r1*r2)/Math.pow(10,m)
+}
+module.exports = {
+  cMul: cMul
+}

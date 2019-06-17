@@ -1,0 +1,78 @@
+swiper{
+  text-align: center;
+  height: 350rpx;
+}
+swiper-item image{
+  width: 90%;
+  border-radius: 5px;
+  height: 100%;
+}
+.main{
+  width: 90%;
+  margin: 5vw auto;
+}
+.location text{
+  font-size: 4.5vw;
+  margin: 0 1vw;
+  color: #353EDD;
+  font-weight: 600;
+}
+.weather{
+  display: flex;
+  flex-wrap: wrap;
+  height: 30vw;
+}
+
+.weather view{
+  width: 100%;
+}
+.weather .top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+}
+.tem{
+  font-size: 7vw!important;
+}
+.weather text{
+  margin-right: 2vw;
+  font-size: 4.5vw;
+}
+.weather .bottom{
+  display: flex;
+  flex-wrap: wrap;
+}
+.weather .bottom view{
+  width: 100%;
+}
+
+.w-img{
+  width: 16vw;
+  height: 12vw;
+}
+.w-hidden{
+  opacity: 0;
+  transition: all 0.8s;
+}
+.w-show{
+  opacity: 1!important;
+}
+
+
+button{
+  color: #ffffff;
+}
+button::after{
+  border: none
+}
+.button-hover{
+  color: #ffffff;
+  opacity: 0.9
+}
+.main button{
+  width: 100%;
+  background: #107BCD;
+  margin: 6vw 0;
+}
+

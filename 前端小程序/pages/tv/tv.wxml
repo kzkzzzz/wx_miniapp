@@ -1,0 +1,26 @@
+<!--pages/tv/tv.wxml-->
+<wxs src='./tv.wxs' module='tools' />
+<!-- <button class='search' bindtap='loadQ'>加载更多</button> -->
+<view class='search'>
+<view class='left'><image src='../../images/search.png'></image></view>
+<input bindconfirm='searchVideo' bindinput='saveContent' value='{{keyword}}' data-name='name' placeholder-class='pcc' cursor-spacing='100' maxlength='16' placeholder='搜索内容'></input>
+<view class='right'></view>
+<view class='sback' bindtap='searchBack'>取消</view>
+</view>
+<scroll-view bindscroll='scrollEvent' bindscrolltolower='contiuneList'  scroll-y style='height:{{scrollHeight}}' >
+
+<view class='main'>
+  <block wx:for='{{videoList}}' wx:key='{{item.id}}'>
+    <view class='video'>
+      <view class='title'>{{item.title}}</view>
+      <!-- opacity:{{tools.opac(lazy["a"+index])}} ../../images/-->
+      <image lazy-load='true' data-index='{{index}}' bindtap='goVideo' class='{{imgClass}}'  src='{{item.img_url}}'></image>
+      <view class='action'>
+      <view><image bindtap='likeVideo' data-index='{{index}}' data-vid='{{item.id}}' src='{{like["like"+item.id]?"../../images/likes.png":"../../images/like.png"}}'></image><text>{{item.thumbs}}</text></view>
+      <view><image src='../../images/play.png'></image><text>{{item.play_num}}</text></view>
+      <view><image src='../../images/comment.png'></image><text>{{item.comment_num}}</text></view>
+      </view>
+    </view>
+  </block>
+</view>
+</scroll-view>

@@ -1,0 +1,22 @@
+<!--pages/address/address.wxml-->
+<view class='address'>
+
+<view class='input'>
+<input bindinput='saveContent' value='{{address.name}}' data-name='name' placeholder-class='pcc' cursor-spacing='100' maxlength='16' placeholder='姓名'></input> 
+</view>
+
+<view class='input'>
+<input bindinput='saveContent' data-name='phone' placeholder-class='pcc' cursor-spacing='100' type='number' maxlength='11' value='{{address.phone}}' placeholder='手机号'></input>
+</view>
+
+<view class='input three'>
+<input bindinput='saveContent' value='{{address.address}}' data-name='address' placeholder-class='pcc' cursor-spacing='100' placeholder='详细地址'></input>
+<view class='location' bindtap='goLocation'>
+<image src='../../images/location.png'></image>
+</view>
+</view>
+
+<button class='address-btn' hover-class='address-btn-hover' bindtap='saveAddress' >确定</button>
+</view>
+
+

@@ -1,0 +1,39 @@
+<!--pages/pay/pay.wxml-->
+<view class='title'>订单列表</view>
+<view class='main'>
+<view wx:if='{{!orders}}'>订单列表是空的</view>
+
+  <view class='orders' wx:for='{{orders}}' wx:for-item='order' wx:key='id'>
+    <view class='order-title'>
+      <text>创建时间: {{order.created_at}}</text>
+      <text>订单号：{{order.ordernum}}</text>
+
+    </view>
+
+    <view class='goods' wx:for='{{order.goods}}' wx:for-item='good' wx:key='id'>
+      <view class='left-goods'>
+        <image src='{{good.gimage}}'></image>
+      </view>
+
+      <view class='right-goods'>
+        <text>{{good.gtotal}}</text>
+      </view>
+    </view>
+
+
+    <view class='order-address'>
+      <view>收货地址</view>
+      <view> 
+      <text>{{order.consignee}} {{order.phone}}</text>
+      <text>{{order.address}}</text>
+      </view>
+    </view>
+
+      <view class='order-price'>
+      <view>折扣: <text class='disprice'>￥{{order.discount_price}}</text></view>
+      <view>实付: <text class='payprice'>￥{{order.total_price}}</text></view>
+    </view>
+
+
+  </view>
+</view>

@@ -1,0 +1,14 @@
+var gender = function(num){
+  var s;
+  switch(num){
+    case 2:
+    s ='女';
+    break;
+    case 1:
+    s = '男';
+  }
+  return s;
+}
+module.exports = {
+  gender:gender
+}

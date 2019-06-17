@@ -1,0 +1,13 @@
+<view class='register'>
+<view class='title'>注册账号</view>
+<input bindinput='saveContent' data-name='username' placeholder-class='pcc' cursor-spacing='100' maxlength='16' placeholder='昵称'></input> 
+<input bindinput='saveContent' data-name='account' placeholder-class='pcc'cursor-spacing='100' maxlength='16' placeholder='{{form.method=="email"?"邮箱":"手机号"}}'></input>
+<input bindinput='saveContent' type='password' data-name='password' placeholder-class='pcc'cursor-spacing='100' maxlength='16' placeholder='密码'></input>
+<view class='valid-code'>
+<input bindinput='saveContent' data-name='valid_code' placeholder-class='pcc'cursor-spacing='100' maxlength='6' placeholder='验证码'></input>
+<text bindtap='sendCode' class='{{countdownFlag?"send-active":""}}'>{{countdown}}</text>
+</view>
+
+<button class='reg-btn' hover-class='reg-btn-hover' bindtap='registerAccount' >立即注册</button>
+
+</view>

@@ -1,0 +1,51 @@
+/* pages/address/address.wxss */
+.address{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.input{
+  width: 80%;
+  position: relative;
+  border-bottom: 1px solid #E6E6E6;
+  margin-bottom: 4vw;
+}
+.address input{
+  width: 100%;
+  padding: 3% 0;
+  padding-left: 5px;
+  font-size: 4.5vw;
+  height: 5vw;
+}
+.three{
+  box-sizing: border-box;
+  padding-right: 9vw;
+}
+.location{
+position: absolute;
+right: 0;
+top: 50%;
+transform: translateY(-40%);
+z-index: 10;
+}
+.location image{
+  width: 7vw;
+  height: 7vw;
+}
+.pcc{
+  color: #D8D8D8;
+  font-size: 4.5vw;
+}
+.address-btn{
+  color: #ffffff;
+  width: 75%;
+  background: #0174DF;
+  font-size: 4.5vw;
+  font-weight: 600;
+  padding: 0;
+}
+.address-btn-hover{
+  color: #ffffff;
+  background: #0174DF;
+  opacity: 0.9;
+}

@@ -1,0 +1,21 @@
+<wxs src='user.wxs' module='tool' />
+
+<view class='main'>
+  <view class='info'>
+    <image src='{{user.avatarUrl?user.avatarUrl:"/images/tva.gif"}}'></image>
+    <view>{{user.nickName?user.nickName:"未登录"}}</view>
+    <view>{{user.country}}</view>
+    <view>{{tool.gender(user.gender)}}</view>
+  </view>
+
+  <view class='btn-view' wx:if='{{!user.nickName}}'>
+    <button class='wlogin' hover-class='btn-hover' open-type='getUserInfo' bindgetuserinfo='userInfo'>微信登录</button>
+    <button class='login' hover-class='btn-hover'  bindtap='goLogin'>账号登录</button>
+    <view class='go-reg'>
+      <button bindtap='goRegister' hover-class='btn-hover' data-method='sms'>手机号注册</button>
+      <button bindtap='goRegister' hover-class='btn-hover' data-method='email'>邮箱注册</button>
+    </view>
+  </view>
+
+  <button class='logout' hover-class='btn-hover' bindtap='goLogout'>退出登录</button>
+</view>

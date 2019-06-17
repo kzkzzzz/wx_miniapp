@@ -1,0 +1,73 @@
+button::after{
+  border: none;
+}
+.btn-hover{
+  opacity: 0.7;
+}
+.main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 100vh;
+  width: 100%;
+}
+.info{
+  height: 40vh;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.info image{
+  width: 18vh;
+  height: 18vh;
+  border-radius: 50%;
+}
+.info view{
+  width: 100%;
+  height: 5vh;
+  text-align: center;
+}
+.btn-view{
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-around;
+  justify-content: center;
+}
+.main button{
+  width: 70%;
+  color: #ffffff;
+}
+.wlogin{
+  background: #04B45F;
+}
+.go-reg{
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+
+}
+.go-reg button{
+  width: 45%;
+  margin: 0;
+}
+.go-reg button:first-child{
+  background: #FF8000;
+}
+.go-reg button:last-child{
+  background: #9A2EFE;
+}
+.login{
+  background: #5882FA
+}
+.logout{
+  background: #FA5858
+}
+
+
+
+

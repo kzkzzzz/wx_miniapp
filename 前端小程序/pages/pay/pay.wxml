@@ -1,0 +1,100 @@
+<wxs src='pay.wxs' module='tool' />
+
+
+<view class='fixed-pay' hidden='{{payview}}' catchtouchmove='stopTouch'></view>
+<view class='pay' hidden='{{payview}}' catchtouchmove='stopTouch'>
+<view class='payclose' bindtap='closePay'>×</view>
+  <view class='pay-title'>输入兑换码</view>
+  <view class='pay-content'>
+    <view class='pay-name'>商品总价</view>
+    <view class='pay-money'>¥{{totalPrice}}</view>
+    <view class='pay-input'>
+      <input bindinput='saveKey' cursor-spacing='100' placeholder-class='aplaceholder' maxlength='12' placeholder='{{payPlaceholder?payPlaceholder:"输入兑换码"}}'></input>
+    </view>
+    <button bindtap='checkPay' class='pay-btn' hover-class='hpay'>
+      <text>{{payStatus}}</text>
+      <text style='position:absolute'>{{payCount}}</text>
+    </button>
+  </view>
+</view>
+
+<view class='big'>
+
+  <view class='one' bindtap='writeAddress'>
+
+    <view class='left-icon'>
+      <image src='../../images/address.png'></image>
+    </view>
+
+    <view class='right-content'>
+      <view class='address'>
+        <text>{{address.address?address.address:"输入地址"}}</text>
+      </view>
+      <view class='name'>
+        <text>{{address.name?address.name:"输入姓名"}}</text>
+        <text>{{address.phone?address.phone:"输入电话"}}</text>
+      </view>
+    </view>
+
+    <view class='right-icon'>
+      <text></text>
+    </view>
+  </view>
+
+  <view class='two'>
+    <view class='left-icon'>
+      <image src='../../images/time.png'></image>
+    </view>
+    <view class='right-content'>
+      <view class='timetext'>
+        <text>立即送出</text>
+      </view>
+      <view class='time'>
+        <text>大约{{time}}送达</text>
+      </view>
+    </view>
+  </view>
+
+  <view class='three' style='max-height:{{maxHeight}}vh;overflow:hidden'>
+
+    <view class='goods' wx:for='{{totalGoods}}' wx:key='{{gid}}'>
+      <view class='left-goods'>
+        <image src='{{item.gimage}}'></image>
+      </view>
+      <view class='right-goods'>
+        <view class='name-price'>
+          <text class='name'>{{item.gname}}</text>
+          <view class='price'>
+          <text>￥{{tool.cMul(item.total,item.gprice)}}</text>
+          <text class='disprice' wx:if='{{item.gprice!=item.disprice}}'>￥{{tool.cMul(item.total,item.disprice)}}</text>
+          </view>
+        </view>
+        <view wx:if='{{item.gtype}}'>规格: {{item.gtype}}</view>
+        <view>x{{item.total}}</view>
+      </view>
+    </view>
+
+  </view>
+
+  <view bindtap='showMore' class='more {{mhidden?"mhidden":""}}'><text>{{moreText}}</text><text class='jt-up   {{toggleHide?"":"shidden"}}'></text><text class='jt-down {{toggleHide?"shidden":""}}'></text></view>
+
+  <view class='four'>
+    <text>已折扣<text class='dispirce'>￥{{discountPrice}}</text></text>
+    <text class='stext'>合计</text>
+    <text class='price'>￥{{totalPrice}}</text>
+  </view>
+
+  <view class='empty'></view>
+</view>
+
+
+
+<view class='small'>
+  <view class='small-left'>
+    <text>需支付</text>
+    <text class='tprice'>￥{{totalPrice}}</text>
+  </view>
+    <view class='small-right'>
+    <button bindtap='payView'>点击付款</button>
+  </view>
+</view>
